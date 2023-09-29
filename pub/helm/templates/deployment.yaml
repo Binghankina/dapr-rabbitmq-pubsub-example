@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dapr-pub
+  namespace: dapr-pub
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dapr-pub
+  template:
+    metadata:
+      labels:
+        app: dapr-pub
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "dapr-pub"
+    spec:
+      containers:
+      - name: dapr-pub
+        image: dapr-pub-image
+        imagePullPolicy: IfNotPresent

@@ -1,0 +1,31 @@
+apiVersion: dapr.io/v1alpha1
+kind: Component
+metadata:
+  name: orderpubsub
+  namespace: dapr-pub 
+spec:
+  type: pubsub.rabbitmq
+  version: v1
+  metadata:
+  - name: protocol
+    value: amqp  
+  - name: hostname
+    value: rabbitmq-cluster.dev-rabbitmq.svc.cluster.local 
+  - name: username
+    secretKeyRef:
+      name: rabbitmq-secrets
+      key:  username
+  - name: password
+    secretKeyRef:
+      name: rabbitmq-secrets
+      key:  password
+  - name: durable
+    value: "false"
+  - name: deletedWhenUnused
+    value: "false"
+  - name: autoAck
+    value: "false"
+  - name: reconnectWait
+    value: "0"
+  - name: exchangeKind
+    value: fanout

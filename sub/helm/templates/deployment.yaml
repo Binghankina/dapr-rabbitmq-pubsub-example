@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: dapr-sub
+  namespace: dapr-sub
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: dapr-sub
+  template:
+    metadata:
+      labels:
+        app: dapr-sub
+      annotations:
+        dapr.io/enabled: "true"
+        dapr.io/app-id: "dapr-sub"
+        dapr.io/app-port: "6001"
+    spec:
+      containers:
+      - name: dapr-sub
+        image: dapr-sub-image
+        imagePullPolicy: IfNotPresent
+        ports:
+          - containerPort: 6001
