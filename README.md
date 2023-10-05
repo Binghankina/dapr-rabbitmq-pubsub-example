@@ -4,7 +4,7 @@ Publish and subscribe (pub/sub) enables microservices to communicate with each o
 - The consumer, or subscriber, subscribes to the topic and receives messages from an output channel, unaware which service produced these messages.
 - An intermediary message broker copies each message from a publisher’s input channel to an output channel for all subscribers interested in that message. This pattern is especially useful when you need to decouple microservices from one another.
 
-- ![pubsub-overview-pattern](https://docs.dapr.io/images/pubsub-overview-pattern.png)
+![pubsub-overview-pattern](https://docs.dapr.io/images/pubsub-overview-pattern.png)
 
 ## Prerequists
 [tilt](https://docs.tilt.dev/install.html)
